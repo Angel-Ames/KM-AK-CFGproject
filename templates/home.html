@@ -1,0 +1,33 @@
+{% include "header.html"%}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+
+<body>
+
+<a href = "park1" >
+<img class = "park1" src="{{ url_for('static', filename='park1.jpeg')}}" alt="botanical gradens">
+</a>
+
+<h1>Welcome to our website</h1>
+<h2>Please enter the location you would like to search in the box below. You can enter a place name or postcode</h2>
+
+  <form action="/parks" method="post">
+    Find Parks:<br>
+    <input type="text" name="park_output" value="Sheffield, UK">
+    <br>
+    <input class=button type="submit" value="Submit">
+    </form> 
+  
+    <form action="/maps" method="post">
+    Location:<br>
+    <input type="text" name="location" value="Sheffield, UK">
+    <br>
+    <input class=button type="submit" value="Submit">
+    </form> 
+</body>
+
+{% include "footer.html"%}
