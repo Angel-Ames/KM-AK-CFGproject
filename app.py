@@ -69,4 +69,13 @@ def parks_local():
 def about_page():
   return render_template("about.html")
 
+@app.route("/GreenSpace")
+def GreenSpace_page():
+  return render_template("GreenSpace.html")
+
+@app.route("/Contact")
+def Contact_page():
+  return render_template("Contact.html")
+
+
 app.run(debug=True)
