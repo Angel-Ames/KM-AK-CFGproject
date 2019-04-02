@@ -1,38 +1,75 @@
 {% include "header.html"%}
 
 <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" type="text/css"> <!--  -->
+  <link rel="stylesheet" href="Home.css" type="text/css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>The Green Space Place</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> <!-- Where the navigation comes from -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
+<header>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">The Green Space Place</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="home.html">Home</a></li>
+        <li><a href="GreenSpace.html">Green Spaces</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
 <body>
+  <div id="background_greenspace">
 
 <!-- The text below is to add an image -->
-<a href = "park1" >
-<img class = "park1" src="{{ url_for('static', filename='park1.jpeg')}}" alt="botanical gradens">
-</a>
+      <a href = "park1" >
+      <img class = "park1" src="{{ url_for('static', filename='park1.jpeg')}}" alt="botanical gradens">
+      </a>
 
-<h1>Welcome to our website</h1>
-<h2>Please enter the location you would like to search in the box below. You can enter a place name or postcode</h2>
+      <h1>Welcome to </h1> <highlight>The Green Space Place!</highlight>
+      <h2>Please enter the location you would like to search in the box below. You can enter a place name or postcode</h2>
 
 <!-- This form is to input the data for the API to get data for nearby parks -->
-  <form action="/parks" method="post">
-    Find Parks:<br>
-    <input type="text" name="park_output" value="Sheffield, UK">
-    <br>
-    <input class=button type="submit" value="Submit">
-    </form> 
+<!-- Tried to split this into three columns so that the box would sit in the middle, but didn't work?!-->
 
-<!-- This form is to input the data to plot the deired location on a map -->
-    <form action="/maps" method="post">
-    Location:<br>
-    <input type="text" name="location" value="Sheffield, UK">
-    <br>
-    <input class=button type="submit" value="Submit">
-    </form> 
+      <form action="/parks" method="post">
+        Find Parks:<br>
+        <input type="text" name="park_output" value="i.e. Sheffield, UK">
+        <br>
+        <input class=button type="submit" value="Submit">
+        </form>
+
+    <!-- This form is to input the data to plot the deired location on a map -->
+        <form action="/maps" method="post">
+        Location:<br>
+        <input type="text" name="location" value="i.e. Sheffield, UK">
+        <br>
+        <input class=button type="submit" value="Submit">
+      </form>
+    </div>
 </body>
 
+<footer>
+  <div class="footer">
+    <p> Want to tell us about where you've been? Get in touch! </p>
+    <a href="#"> <img src="https://imgur.com/FJV2xjM.png" title="Facebook" width=30 height=30> </a>
+    <a href="#"> <img src="https://imgur.com/UqFc2Yy.png" title="Instagram" width=30 height=30> </a>
+    <a href="#"> <img src="https://imgur.com/R9vd7ZF.png" title="Twitter" width=30 height=30> </a>
+  </div>
+</footer>
 <!-- These two forms are currently seperate while I try and trouble shoot! Should be in the same one eventually -->
 
 {% include "footer.html"%}
