@@ -1,54 +1,8 @@
 {% include "header.html"%}
 
-<!-- <html>
-    <head>
-        <title>lookupentitiesHTML</title>
-        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
-        <style type='text/css'>body{margin:0;padding:0;overflow:hidden;font-family:'Segoe UI',Helvetica,Arial,Sans-Serif}</style>
-    </head>
-    <body>
-        <div id='printoutPanel'></div>
-        
-        <div id='myMap' style='width: 100vw; height: 100vh;'></div>
-        <script type='text/javascript'>
-            function loadMapScenario() {
-                var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
-                Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
-                    var searchManager = new Microsoft.Maps.Search.SearchManager(map);
-                    var lat='{{lat}}';
-                    var lon='{{lon}}';
-                    lat;
-                    lon;
-                    var entityLookupRequestOptions = {
-                        location: new Microsoft.Maps.Location(lat, lon),
-                        callback: function (answer) {
-                            if (answer) {
-                                var pushpins = [];
-                                var printText = 'Address: <br>' + answer.addressOfLocation.formattedAddress + '<br><br>Parks <br>';
-                                pushpins.push(new Microsoft.Maps.Pushpin(answer.addressOfLocation.location, null));
-                                for (var i = 0, len = answer.businessesAtLocation.length; i < len; i++) {
-                                    var business = answer.businessesAtLocation[i];
-                                    printText += business.entityName + '<br><br>';
-                                    pushpins.push(new Microsoft.Maps.Pushpin(business.businessAddress.location, null));
-                                }
-                                map.entities.push(pushpins);
-                                document.getElementById('printoutPanel').innerHTML = printText;
-                            }
-                        }
-                    };
-                    searchManager.entityLookup(entityLookupRequestOptions);
-                });
-                
-            }
-        </script>
-        <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?key=AnzKe5tx1MxMoXCTn2lK8rQq_QfLbLn2kZQDT29Hnai7pobWOTv2h6n3qVMtSooq&callback=loadMapScenario' async defer></script>
-    </body>
-</html> -->
-
-<!DOCTYPE html>
 <html>
     <head>
-    
+<!-- This is code taken directly from bing maps website and help pages to produce a map -->
         <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
         <style type='text/css'>body{margin:0;padding:0;overflow:hidden;font-family:'Segoe UI',Helvetica,Arial,Sans-Serif}</style>
     </head>
@@ -61,9 +15,12 @@
                 var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
                 Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
                     var searchManager = new Microsoft.Maps.Search.SearchManager(map);
+                    // This lat and long are taken from the python pages where it extracts lat and long from the iput location
+                    //I gave them new variables so it was easier to reuse them in this HTML
                     var lat='{{lat}}';
                     var lon='{{lon}}';
                     var reverseGeocodeRequestOptions = {
+                        //This is where it inputs the lat and lon of the desired location on the map
                         location: new Microsoft.Maps.Location(lat, lon),
                         callback: function (answer, userData) {
                             map.setView({ bounds: answer.bestView });
@@ -77,7 +34,7 @@
                 
             }
         </script>
-        
+        <!-- This is how the map is then created. I tried to hide my key but it would show anyway in the browser -->
         <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AnzKe5tx1MxMoXCTn2lK8rQq_QfLbLn2kZQDT29Hnai7pobWOTv2h6n3qVMtSooq&callback=loadMapScenario' async defer></script>
     </body>
 </html>

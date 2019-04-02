@@ -1,3 +1,4 @@
+# This is a python file that gets the lat and long values from a place.
 import json
 import sys
 import ssl
@@ -28,7 +29,7 @@ from flask.json import jsonify
 
 def geolocate_input(json_file):
     geolocator = Nominatim()
-
+# This gets the geocode and times it out if it gets to long
     location = geolocator.geocode(json_file, timeout = 1)
     return location
 

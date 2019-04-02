@@ -8,6 +8,7 @@
 
 <body>
 
+<!-- The text below is to add an image -->
 <a href = "park1" >
 <img class = "park1" src="{{ url_for('static', filename='park1.jpeg')}}" alt="botanical gradens">
 </a>
@@ -15,13 +16,15 @@
 <h1>Welcome to our website</h1>
 <h2>Please enter the location you would like to search in the box below. You can enter a place name or postcode</h2>
 
+<!-- This form is to input the data for the API to get data for nearby parks -->
   <form action="/parks" method="post">
     Find Parks:<br>
     <input type="text" name="park_output" value="Sheffield, UK">
     <br>
     <input class=button type="submit" value="Submit">
     </form> 
-  
+
+<!-- This form is to input the data to plot the deired location on a map -->
     <form action="/maps" method="post">
     Location:<br>
     <input type="text" name="location" value="Sheffield, UK">
@@ -29,5 +32,7 @@
     <input class=button type="submit" value="Submit">
     </form> 
 </body>
+
+<!-- These two forms are currently seperate while I try and trouble shoot! Should be in the same one eventually -->
 
 {% include "footer.html"%}
