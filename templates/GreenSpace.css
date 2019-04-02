@@ -42,22 +42,22 @@ section:after{
 }
 
 div.transbox {
-    margin: 30px;
-    background-color: #ffffff;
-    opacity: 0.6;
-    filter: alpha(opacity=60); /* For IE8 and earlier */
+  margin: 30px;
+  background-color: #ffffff;
+  opacity: 0.6;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
 }
 
 div.transbox p {
-    margin: 5%;
-    font-weight: bold;
-    color: #000000;
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
 
 footer{
-    background-color: #57CE31;
-    padding: 10px;
-    font-style: strong;
-    font-size: 20px;
-    text-align: center;
-    color: white;
+  background-color: #57CE31;
+  padding: 10px;
+  font-style: strong;
+  font-size: 20px;
+  text-align: center;
+  color: white;
 }
