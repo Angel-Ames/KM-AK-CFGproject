@@ -8,7 +8,10 @@ ctx = ssl.create_default_context(cafile=certifi.where())
 geopy.geocoders.options.default_ssl_context = ctx
 from geopy.geocoders import Nominatim
 import geopy
-from flask.json import jsonify		
+from dotenv import load_dotenv
+load_dotenv()
+import json
+from flask.json import jsonify	
 
 # def geolocate_input(json_file):
 #     geolocator = Nominatim()
@@ -32,5 +35,6 @@ def geolocate_input(json_file):
 # This gets the geocode and times it out if it gets to long
     location = geolocator.geocode(json_file, timeout = 1)
     return location
+
 
 

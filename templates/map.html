@@ -1,4 +1,4 @@
-{% include "header.html"%}
+
 
 <html>
     <head>
@@ -12,13 +12,19 @@
         <div id='myMap' style='width: 100vw; height: 100vh;'></div>
         <script type='text/javascript'>
             function loadMapScenario() {
+                var lat='{{lat}}';
+                var lon='{{lon}}';
+                var result_lat='{{result_lat}}';
+                var result_lon='{{result_lon}}';
                 var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
                 Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
                     var searchManager = new Microsoft.Maps.Search.SearchManager(map);
                     // This lat and long are taken from the python pages where it extracts lat and long from the iput location
                     //I gave them new variables so it was easier to reuse them in this HTML
-                    var lat='{{lat}}';
-                    var lon='{{lon}}';
+                    // var lat='{{lat}}';
+                    // var lon='{{lon}}';
+                    // var result_lat='{{result_lat}}';
+                    // var result_lon='{{result_lon}}';
                     var reverseGeocodeRequestOptions = {
                         //This is where it inputs the lat and lon of the desired location on the map
                         location: new Microsoft.Maps.Location(lat, lon),
@@ -29,13 +35,27 @@
                                 answer.address.formattedAddress;
                         }
                     };
+
                     searchManager.reverseGeocode(reverseGeocodeRequestOptions);
+                    // var pushpin = new Microsoft.Maps.Pushpin(result_lat, result_lon)
+                    //     map.entities.push(pushpin);
+                    var pushpins = [];
+                        // var printText = 'Address: <br>' + answer.addressOfLocation.formattedAddress + '<br><br>Nearby entities: <br>';
+                    pushpins.push(new Microsoft.Maps.Pushpin(result_lat, result_lon, null));
+                    for (var i = 0, len = 1; i < len; i++) {
+                            // var business = answer.businessesAtLocation[i];
+                            // printText += business.entityName + '<br><br>';
+                        pushpins.push(new Microsoft.Maps.Pushpin(result_lat, result_lon, null));
+                        }
+                map.entities.push(pushpins);
+                        // document.getElementById('printoutPanel').innerHTML = printText;
+
                 });
-                
+              
+
             }
         </script>
         <!-- This is how the map is then created. I tried to hide my key but it would show anyway in the browser -->
         <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AnzKe5tx1MxMoXCTn2lK8rQq_QfLbLn2kZQDT29Hnai7pobWOTv2h6n3qVMtSooq&callback=loadMapScenario' async defer></script>
     </body>
 </html>
-{% include "footer.html"%}

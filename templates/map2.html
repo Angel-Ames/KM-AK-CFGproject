@@ -1,0 +1,49 @@
+{% include "header.html"%}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script type='text/javascript'>
+    var map;
+    var lat='{{lat}}';
+    var lon='{{lon}}';
+    var result_lat='{{result_lat}}';
+    var result_lon='{{result_lon}}';
+    function GetMap() {
+        map = new Microsoft.Maps.Map('#myMap', {
+            center: new Microsoft.Maps.Location(lat, lon)
+        });
+
+
+
+        var center = map.getCenter();
+        //Create custom Pushpin
+        var pin = new Microsoft.Maps.Pushpin(center, {
+            title: 'Your search location',
+            subTitle: '',
+            text: '1'
+
+        });
+        map.entities.push(pin);
+
+        // start for loop here
+        var loc1 = new Microsoft.Maps.Location(result_lat, result_lon)
+        var pin2 = new Microsoft.Maps.Pushpin(loc1,{
+            title: 'nearest park',
+        })
+
+        //Add the pushpin to the map
+
+        map.entities.push(pin2);
+
+        // finish it here
+    }
+    </script>
+    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AnzKe5tx1MxMoXCTn2lK8rQq_QfLbLn2kZQDT29Hnai7pobWOTv2h6n3qVMtSooq' async defer></script>
+</head>
+<body>
+    <div id="myMap" style="position:relative;width:800px;height:600px;"></div>
+</body>
+</html>
