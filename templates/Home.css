@@ -67,15 +67,10 @@ body {
   background-repeat: no-repeat;
 }
 
-#background_greenspace{
-  background: url(GreenSpace.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 footer{
   position: fixed;
   background-color: #57CE31;
+  width: 100%;
   padding: 10px;
   font-style: strong;
   font-size: 20px;
