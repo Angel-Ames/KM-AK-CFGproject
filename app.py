@@ -50,15 +50,31 @@ def map_page():
   # result_lat = jsonify(json.loads(r.text)["results"]["items"][0]["position"][0])
   # result_lon = jsonify(json.loads(r.text)["results"]["items"][0]["position"][1])
   # This is to view it on print within the function
-  json_title = json.loads(r.text)["results"]["items"][0]["title"]
-  result_lat = json.loads(r.text)["results"]["items"][0]["position"][0]
-  result_lon = json.loads(r.text)["results"]["items"][0]["position"][1]
+  json_title1 = json.loads(r.text)["results"]["items"][0]["title"]
+  result_lat1 = json.loads(r.text)["results"]["items"][0]["position"][0]
+  result_lon1 = json.loads(r.text)["results"]["items"][0]["position"][1]
 
+  json_title2 = json.loads(r.text)["results"]["items"][1]["title"]
+  result_lat2 = json.loads(r.text)["results"]["items"][1]["position"][0]
+  result_lon2 = json.loads(r.text)["results"]["items"][1]["position"][1]
+
+  json_title3 = json.loads(r.text)["results"]["items"][2]["title"]
+  result_lat3 = json.loads(r.text)["results"]["items"][2]["position"][0]
+  result_lon3 = json.loads(r.text)["results"]["items"][2]["position"][1]
+
+  json_title4 = json.loads(r.text)["results"]["items"][3]["title"]
+  result_lat4 = json.loads(r.text)["results"]["items"][3]["position"][0]
+  result_lon4 = json.loads(r.text)["results"]["items"][3]["position"][1]
+  
+  json_title5 = json.loads(r.text)["results"]["items"][4]["title"]
+  result_lat5 = json.loads(r.text)["results"]["items"][4]["position"][0]
+  result_lon5 = json.loads(r.text)["results"]["items"][4]["position"][1]
+  
 
   # render the template HTML with the values of lat and lon which are input into the map to give location
   # return render_template("map2.html", lat=lat, lon=lon, result_latitude=result_latitude, result_longitude=result_longitude, json_title=json_title)
-  print(result_lat)
-  return render_template("map2.html", lat=lat, lon=lon, result_lat=result_lat, result_lon=result_lon, json_title=json_title)
+
+  return render_template("map2.html", lat=lat, lon=lon, result_lat1=result_lat1, result_lon1=result_lon1, json_title1=json_title1, result_lat2=result_lat2, result_lon2=result_lon2, json_title2=json_title2, result_lat3=result_lat3, result_lon3=result_lon3, json_title3=json_title3, result_lat4=result_lat4, result_lon4=result_lon4, json_title4=json_title4, result_lat5=result_lat5, result_lon5=result_lon5, json_title5=json_title5)
 
 # This is similar to above. This is the API HERE to get park data.
 @app.route("/parks", methods=["get", "post"])
@@ -85,10 +101,9 @@ def parks_local():
   result_latitude = jsonify(json.loads(r.text)["results"]["items"][0]["position"][0])
   result_longitude = jsonify(json.loads(r.text)["results"]["items"][0]["position"][1])
 
-  return result_longitude
-
-
-
+  
+  
+  print(result_list)
 
 
 # This is for the about page

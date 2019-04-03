@@ -3,14 +3,43 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" type="text/css"> <!--  -->
+    <link rel="stylesheet" href="Home.css" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Green Space Place</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> <!-- Where the navigation comes from -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+         
     <title></title>
     <meta charset="utf-8" />
     <script type='text/javascript'>
     var map;
     var lat='{{lat}}';
     var lon='{{lon}}';
-    var result_lat='{{result_lat}}';
-    var result_lon='{{result_lon}}';
+    var result_lat1='{{result_lat1}}';
+    var result_lon1='{{result_lon1}}';
+    var result_lat2='{{result_lat2}}';
+    var result_lon2='{{result_lon2}}';
+    var result_lat3='{{result_lat3}}';
+    var result_lon3='{{result_lon3}}';
+    var result_lat4='{{result_lat4}}';
+    var result_lon4='{{result_lon4}}';
+    var result_lat5='{{result_lat5}}';
+    var result_lon5='{{result_lon5}}';
+    var json_title1='{{json_title1}}';
+    var json_title2='{{json_title2}}';
+    var json_title3='{{json_title3}}';
+    var json_title4='{{json_title4}}';
+    var json_title5='{{json_title5}}';
+
+
+
     function GetMap() {
         map = new Microsoft.Maps.Map('#myMap', {
             center: new Microsoft.Maps.Location(lat, lon)
@@ -29,15 +58,43 @@
         map.entities.push(pin);
 
         // start for loop here
-        var loc1 = new Microsoft.Maps.Location(result_lat, result_lon)
+        var loc1 = new Microsoft.Maps.Location(result_lat1, result_lon1)
         var pin2 = new Microsoft.Maps.Pushpin(loc1,{
             title: 'nearest park',
+            subTitle: json_title1,
+        })
+        var loc2 = new Microsoft.Maps.Location(result_lat2, result_lon2)
+        var pin3 = new Microsoft.Maps.Pushpin(loc2,{
+            title: 'Another park',
+            subTitle: json_title2,
+
+        })
+        var loc3 = new Microsoft.Maps.Location(result_lat3, result_lon3)
+        var pin4 = new Microsoft.Maps.Pushpin(loc3,{
+            title: 'Another park',
+            subTitle: json_title3,
+
+        })
+        var loc4 = new Microsoft.Maps.Location(result_lat4, result_lon4)
+        var pin5 = new Microsoft.Maps.Pushpin(loc4,{
+            title: 'Another park',
+            subTitle: json_title4,
+
+        })
+        var loc5 = new Microsoft.Maps.Location(result_lat5, result_lon5)
+        var pin6 = new Microsoft.Maps.Pushpin(loc5,{
+            title: 'Another park',
+            subTitle: json_title5,
+
         })
 
         //Add the pushpin to the map
 
         map.entities.push(pin2);
-
+        map.entities.push(pin3);
+        map.entities.push(pin4);
+        map.entities.push(pin5);
+        map.entities.push(pin6);
         // finish it here
     }
     </script>
@@ -47,3 +104,5 @@
     <div id="myMap" style="position:relative;width:800px;height:600px;"></div>
 </body>
 </html>
+
+{% include "footer.html"%}
