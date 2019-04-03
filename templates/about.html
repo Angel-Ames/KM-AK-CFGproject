@@ -1,10 +1,10 @@
 {% include "header.html"%}
-<html>
+
 <head>
   <title> About Us </title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" type="text/css"> <!--  -->
-  <link rel="stylesheet" href="Home.css" type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='Home.css') }}" type="text/css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -29,5 +29,5 @@
   began to touch upon the use of python (a type of coding language) for the use
   of website design. Find out some mroe information here: https://www.codefirstgirls.org.uk/</p>
 </body>
-</html>
+
 {% include "footer.html"%}

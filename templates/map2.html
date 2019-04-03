@@ -1,11 +1,9 @@
 {% include "header.html"%}
 
-<!DOCTYPE html>
-<html>
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" type="text/css"> <!--  -->
-    <link rel="stylesheet" href="Home.css" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Home.css') }}" type="text/css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -101,7 +99,7 @@
     <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AnzKe5tx1MxMoXCTn2lK8rQq_QfLbLn2kZQDT29Hnai7pobWOTv2h6n3qVMtSooq' async defer></script>
 </head>
 <body>
-    <div id="myMap" style="position:relative;width:800px;height:600px;"></div>
+    <div id="myMap" style="position:center;width:800px;height:600px;"></div>
 </body>
 </html>
 

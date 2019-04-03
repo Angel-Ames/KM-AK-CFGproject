@@ -1,9 +1,9 @@
 {% include "header.html"%}
 
-<html>
+
 <head>
 <title> Green Space </title>
-  <link rel="stylesheet" href="GreenSpace.css" type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='GreenSpace.css') }}" type="text/css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -92,15 +92,17 @@
 
   </div>
 </div>
-
-<footer>
+</body>
+<!-- <footer>
   <div class="footer">
     <p> Want to tell us about where you've been? Get in touch! </p>
     <a href="#"> <img src="https://imgur.com/FJV2xjM.png" title="Facebook" width=30 height=30> </a>
     <a href="#"> <img src="https://imgur.com/UqFc2Yy.png" title="Instagram" width=30 height=30> </a>
     <a href="#"> <img src="https://imgur.com/R9vd7ZF.png" title="Twitter" width=30 height=30> </a>
   </div>
-</footer>
+</footer> -->
 
-</body>
-</html>
+{% include "footer.html"%}
+
+
+
